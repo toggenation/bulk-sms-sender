@@ -1,0 +1,25 @@
+{
+  "name": "bulk-text-messages",
+  "version": "1.0.0",
+  "description": "Use Puppeteer to automate messages.google.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmcd73/bulk-text-messages.git"
+  },
+  "author": "James McDonald <james@toggen.com.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmcd73/bulk-text-messages/issues"
+  },
+  "homepage": "https://github.com/jmcd73/bulk-text-messages#readme",
+  "dependencies": {
+    "csv-load-sync": "^2.3.1",
+    "csv-parser": "^3.0.0",
+    "puppeteer-core": "^3.0.2"
+  }
+}

@@ -1,0 +1,4 @@
+﻿PERSON,NUMBER,NAME,DATE
+# this is a comment and is skipped by the csv parser
+# rename this to people.csv and add names and numbers here
+James McDonald,0428 964 633,James,12/12/12
