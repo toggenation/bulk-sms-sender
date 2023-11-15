@@ -1,4 +1,4 @@
-inputFilePath = "ringwood.csv";
+inputFilePath = "csv/invite-test.csv";
 
 const { load } = require('csv-load-sync');
 
@@ -6,16 +6,16 @@ const messages = load(inputFilePath);
 
 // put the CSV headings in here that you want to find and replace
 const replaceTokens = [
-    "FirstName"
+    "FirstName",
+    "LastName",
+    "Date"
 ];
 
-
-
 // this is your SMS message with the replace tokens wrapped in {}
-const message = `Hi {FirstName},
-The last SMS was part of a bulk send and I know you already know who I am... So if you can help with attendance in the Auditorium or another area please let me know.
+const message = `Hi {FirstName} {LastName},
 
-WCL
+I wish to invite you to an event on {Date}. Please respond if you would like to come.
+
 James
 `;
 
