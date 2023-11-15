@@ -2,15 +2,17 @@ const puppeteer = require("puppeteer-core");
 
 const { messages } = require("./message");
 
-const addNumbers = async(page, number) => {
+const addNumbers = async (page, number) => {
     await page.waitForSelector("input.input", { visible: true });
-    await page.type("input.input", number + String.fromCharCode(13));
+    await page.type("input.input", number);
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Enter");
 };
 
-const loopItems = async(page, message) => {
+const loopItems = async (page, message) => {
 
-    console.log(`Sending message to ${message.PERSON} on ${message.NUMBER}`)
-    await addNumbers(page, message.NUMBER);
+    console.log(`Sending message to ${message.FirstName} ${message.LastName} on ${message.Phone}`)
+    await addNumbers(page, message.Phone);
 
     await page.waitForSelector("textarea.input", { visible: true });
 
@@ -32,18 +34,18 @@ const loopItems = async(page, message) => {
     await page.waitFor(2000);
     // body > mw - app > mw - bootstrap > div > main > mw - main - container > div > mw - main - nav > div > mw - fab - link > a
     await page.waitForSelector('div > mw-fab-link > a')
-        // body > mw-app > mw-bootstrap > div > main > mw-main-container > div > mw-main-nav > div > mw-fab-link > a;
+    // body > mw-app > mw-bootstrap > div > main > mw-main-container > div > mw-main-nav > div > mw-fab-link > a;
     const [button] = await page.$x("//a[@href='/web/conversations/new']");
     button.click();
 
     await page.waitFor(3000);
 
 };
-(async() => {
+(async () => {
     const browser = await puppeteer.launch({
-        executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
         headless: false,
-        userDataDir: "C:\\Users\\jalexander\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
+        userDataDir: "C:\\Users\\ja\\AppData\\Local\\Google\\Chrome\\User Data\\Default"
     });
     const page = await browser.newPage();
     await page.setViewport({

@@ -1,4 +1,4 @@
-inputFilePath = "people.csv";
+inputFilePath = "ringwood.csv";
 
 const { load } = require('csv-load-sync');
 
@@ -6,15 +6,17 @@ const messages = load(inputFilePath);
 
 // put the CSV headings in here that you want to find and replace
 const replaceTokens = [
-    "NAME",
-    'DATE'
+    "FirstName"
 ];
 
 
 
 // this is your SMS message with the replace tokens wrapped in {}
-const message = `Dear {NAME},
-Your message here with {DATE} or other tokens
+const message = `Hi {FirstName},
+The last SMS was part of a bulk send and I know you already know who I am... So if you can help with attendance in the Auditorium or another area please let me know.
+
+WCL
+James
 `;
 
 const replaceStrings = (tokenToReplace, replaceWith, str) => {
@@ -30,7 +32,7 @@ const msgs = messages.map((data) => {
     })
 
 
-    return {...data, message: msg }
+    return { ...data, message: msg }
 });
 // .filter((data) => {
 //     return data.PERSON == "James McDonald"
