@@ -1,4 +1,4 @@
 ﻿FirstName,LastName,FullName,Phone,Date
 # this is a comment and is skipped by the csv parser
 # rename this to csv/people.csv and add names and numbers here
-James,McDonald,James McDonald,0428 964 633,James,12/12/12
+James,McDonald,James McDonald,0428 964 633,12/12/12
